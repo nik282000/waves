@@ -2,7 +2,7 @@
 // Set up the world and scale factor
 float [][] ocean;
 int ocean_width, ocean_height;
-int scale = 4; <--- Makes your pixels bigger
+int scale = 4; // <--- Makes your pixels bigger
 
 // Map ocean values 0-1 to 0-255 colour
 color colour_map(float i){
@@ -62,7 +62,7 @@ void update_ocean(){
       }
       
       // Add random sparkels
-      if(random(0, 1) > 0.9999){ <--- Playing with this changes the rate at wich sparkles spawn
+      if(random(0, 1) > 0.9999){ // <--- Playing with this changes the rate at wich sparkles spawn
         ocean[x][y] = 2;
       }
     }
@@ -80,7 +80,7 @@ void draw_ocean(){
 }
 
 void setup(){
-  size(1024,768); <--- Try to keep these a multiple of you scale number to prevent and ugly boarder
+  size(1024,768); // <--- Try to keep these a multiple of you scale number to prevent and ugly boarder
   colorMode(HSB, 255);
   noStroke();
   ocean_width = width / scale;
