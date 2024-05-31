@@ -2,7 +2,7 @@
 // Set up the world and scale factor
 float [][] ocean;
 int ocean_width, ocean_height;
-int scale = 4;
+int scale = 4; <--- Makes your pixels bigger
 
 // Map ocean values 0-1 to 0-255 colour
 color colour_map(float i){
@@ -39,9 +39,9 @@ void update_ocean(){
   for(int y = 0; y < ocean_height; y++){
     for(int x = 0; x < ocean_width; x++){    
       if(ocean[x][y] > 0){
-        e = ocean[x][y] * random(0, 1); // Caclulate energy to move
+        e = ocean[x][y] * random(0, 1); // Caclulate energy to move <--- Playing with this speeds up or slows down the wave propagation
         ocean[x][y] = ocean[x][y] - e; // Remove energy from cell, transfer to drawing
-        l = e * random(0, 1); // Split energy between left and up
+        l = e * random(0, 1); // Split energy between left and up <--- Playting with this changes the the angle of the wave propagation
         u = e - l; // up/down energy is the remainder
 
         // Add energy to neighbouring cells
@@ -62,7 +62,7 @@ void update_ocean(){
       }
       
       // Add random sparkels
-      if(random(0, 1) > 0.9999){
+      if(random(0, 1) > 0.9999){ <--- Playing with this changes the rate at wich sparkles spawn
         ocean[x][y] = 2;
       }
     }
@@ -80,7 +80,7 @@ void draw_ocean(){
 }
 
 void setup(){
-  size(1024,768);
+  size(1024,768); <--- Try to keep these a multiple of you scale number to prevent and ugly boarder
   colorMode(HSB, 255);
   noStroke();
   ocean_width = width / scale;
